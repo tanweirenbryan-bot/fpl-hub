@@ -1,0 +1,81 @@
+name: FPL snapshot
+
+# ---------------------------------------------------------------------------
+# Runs twice a day, pulls the current state of FPL, commits it, then verifies.
+#
+# ORDER MATTERS: we commit BEFORE verifying. A snapshot is unrecoverable once
+# the moment passes, so we never want a failing gate to discard data. If the
+# gates fail, the data is already safe in git and the build goes red to tell you.
+# ---------------------------------------------------------------------------
+
+on:
+  schedule:
+    # Cron on GitHub is ALWAYS UTC, regardless of your timezone.
+    #
+    # 02:17 UTC — FPL price changes land around 01:30 UK time. This is after
+    #             that in both BST and GMT, so we capture the new prices.
+    # 14:17 UTC — afternoon transfer activity, before evening deadlines.
+    #
+    # :17 rather than :00 deliberately. Every scheduled job on GitHub asks for
+    # the hour mark, so the queue at :00 is enormous and delays are worst there.
+    - cron: "17 2 * * *"
+    - cron: "17 14 * * *"
+
+  # Lets you run it by hand from the Actions tab. Use this the first time so
+  # you find out immediately whether it works, instead of waiting for 02:17.
+  workflow_dispatch:
+
+# Two runs writing to the same branch would collide on push. Queue instead.
+concurrency:
+  group: fpl-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Without this the checkout token is read-only and the push step fails
+      # with a confusing 403. This is the single most common reason a
+      # commit-from-Actions workflow does not work.
+      contents: write
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip          # caches installs between runs; saves ~20s
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Take snapshot
+        # If the FPL API is unreachable, fall back to the CSV mirror rather
+        # than losing the snapshot entirely. Degraded data beats no data.
+        run: |
+          python snapshot.py --source api || {
+            echo "::warning::FPL API failed, falling back to CSV mirror"
+            python snapshot.py --source mirror
+          }
+
+      - name: Commit snapshot
+        run: |
+          git config user.name  "fpl-hub-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          # `git commit` exits non-zero when there is nothing staged, which
+          # would fail the build on a no-op run. The || turns that into a note.
+          git commit -m "snapshot: $(date -u +'%Y-%m-%d %H:%M UTC')" \
+            || { echo "no changes to commit"; exit 0; }
+          # Another run may have pushed since checkout. Rebase rather than fail.
+          git pull --rebase --autostash origin ${{ github.ref_name }}
+          git push
+
+      - name: Verify gates
+        # Runs last and is allowed to fail the build. By this point the data is
+        # already committed, so a red build is a signal, not a loss.
+        run: python verify.py

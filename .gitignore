@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# NOTE: data/ is deliberately NOT ignored.
+# The snapshots ARE the asset. Committing them is what makes the history
+# reconstructable, and it is why this repo exists at all.

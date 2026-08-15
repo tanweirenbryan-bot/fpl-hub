@@ -1,0 +1,3 @@
+requests>=2.31      # HTTP client for the FPL API and the CSV mirror
+pandas>=2.0         # dataframes
+pyarrow>=14.0       # Parquet engine. pandas needs this to write .parquet
