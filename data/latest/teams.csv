@@ -1,21 +1,21 @@
 code,id,name,short_name,strength,strength_overall_home,strength_overall_away,strength_attack_home,strength_attack_away,strength_defence_home,strength_defence_away,pulse_id,elo,fotmob_name,snapshot_utc,snapshot_source
-3,1,Arsenal,ARS,,4,5,0,0,0,0,1,,,20260824T1606Z,mirror
-7,2,Aston Villa,AVL,,3,4,0,0,0,0,2,,,20260824T1606Z,mirror
-91,3,Bournemouth,BOU,,3,3,0,0,0,0,127,,,20260824T1606Z,mirror
-94,4,Brentford,BRE,,3,3,0,0,0,0,130,,,20260824T1606Z,mirror
-36,5,Brighton,BHA,,2,3,0,0,0,0,131,,,20260824T1606Z,mirror
-8,6,Chelsea,CHE,,4,4,0,0,0,0,4,,,20260824T1606Z,mirror
-9,7,Coventry City,COV,,2,2,0,0,0,0,5,,,20260824T1606Z,mirror
-31,8,Crystal Palace,CRY,,3,3,0,0,0,0,6,,,20260824T1606Z,mirror
-11,9,Everton,EVE,,3,3,0,0,0,0,7,,,20260824T1606Z,mirror
-54,10,Fulham,FUL,,2,3,0,0,0,0,34,,,20260824T1606Z,mirror
-88,11,Hull City,HUL,,2,2,0,0,0,0,41,,,20260824T1606Z,mirror
-40,12,Ipswich Town,IPS,,2,2,0,0,0,0,8,,,20260824T1606Z,mirror
-2,13,Leeds,LEE,,2,3,0,0,0,0,9,,,20260824T1606Z,mirror
-14,14,Liverpool,LIV,,4,4,0,0,0,0,10,,,20260824T1606Z,mirror
-43,15,Man City,MCI,,4,5,0,0,0,0,11,,,20260824T1606Z,mirror
-1,16,Man Utd,MUN,,4,4,0,0,0,0,12,,,20260824T1606Z,mirror
-4,17,Newcastle,NEW,,2,3,0,0,0,0,23,,,20260824T1606Z,mirror
-17,18,Nott'm Forest,NFO,,3,3,0,0,0,0,15,,,20260824T1606Z,mirror
-6,19,Spurs,TOT,,3,3,0,0,0,0,21,,,20260824T1606Z,mirror
-56,20,Sunderland,SUN,,2,3,0,0,0,0,29,,,20260824T1606Z,mirror
+3,1,Arsenal,ARS,,4,5,0,0,0,0,1,,,20260825T0424Z,mirror
+7,2,Aston Villa,AVL,,3,4,0,0,0,0,2,,,20260825T0424Z,mirror
+91,3,Bournemouth,BOU,,3,3,0,0,0,0,127,,,20260825T0424Z,mirror
+94,4,Brentford,BRE,,3,3,0,0,0,0,130,,,20260825T0424Z,mirror
+36,5,Brighton,BHA,,2,3,0,0,0,0,131,,,20260825T0424Z,mirror
+8,6,Chelsea,CHE,,4,4,0,0,0,0,4,,,20260825T0424Z,mirror
+9,7,Coventry City,COV,,2,2,0,0,0,0,5,,,20260825T0424Z,mirror
+31,8,Crystal Palace,CRY,,3,3,0,0,0,0,6,,,20260825T0424Z,mirror
+11,9,Everton,EVE,,3,3,0,0,0,0,7,,,20260825T0424Z,mirror
+54,10,Fulham,FUL,,2,3,0,0,0,0,34,,,20260825T0424Z,mirror
+88,11,Hull City,HUL,,2,2,0,0,0,0,41,,,20260825T0424Z,mirror
+40,12,Ipswich Town,IPS,,2,2,0,0,0,0,8,,,20260825T0424Z,mirror
+2,13,Leeds,LEE,,2,3,0,0,0,0,9,,,20260825T0424Z,mirror
+14,14,Liverpool,LIV,,4,4,0,0,0,0,10,,,20260825T0424Z,mirror
+43,15,Man City,MCI,,4,5,0,0,0,0,11,,,20260825T0424Z,mirror
+1,16,Man Utd,MUN,,4,4,0,0,0,0,12,,,20260825T0424Z,mirror
+4,17,Newcastle,NEW,,2,3,0,0,0,0,23,,,20260825T0424Z,mirror
+17,18,Nott'm Forest,NFO,,3,3,0,0,0,0,15,,,20260825T0424Z,mirror
+6,19,Spurs,TOT,,3,3,0,0,0,0,21,,,20260825T0424Z,mirror
+56,20,Sunderland,SUN,,2,3,0,0,0,0,29,,,20260825T0424Z,mirror
